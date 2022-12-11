@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Recorder</title>
+    <script src="./video-merger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="./index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="min-vw-100 min-vh-100">
+            <div class="row  m-4">
+                <div class="col-md-5">
+                    <p>
+                        <span id="message"></span>
+                        <span id="counter"></span>
+                    </p>
+                    <div class="card bg-dark panel ">
+
+                        <hr />
+                        <p>
+                            <span class="title2">Share System Audio</span>
+                            <label class="switch">
+
+                                <input #share type="checkbox" checked id="shareaudio" onchange="shareSystemAudio()">
+                                <span class="slider round"></span>
+                            </label>
+                        </p>
+                        <!-- <hr> -->
+                        <div class="media-source">
+
+                            <div class="" id="screen" onclick="toggleSource('screen')">
+                                <button title="Record screen only" id="screen-btn" class=" webcam icon-btn bg-dark">
+                                    <i class="material-icons">
+                                        tv
+                                    </i>
+                                </button>
+                            </div>
+                            <div class="" id="webcam" onclick="toggleSource('webcam')">
+                                <button title="Record webcam only" id="webcam-icon-btn"
+                                    class="webcam icon-btn bg-dark ">
+                                    <i class="material-icons">
+                                        videocam
+                                    </i>
+                                </button>
+                            </div>
+                            <div class="selected" id="screenwecam" onclick="toggleSource('screenwebcam')">
+                                <button title="Record both webcam and screen" id="webcam_screen-btn"
+                                    class="webcam_screen icon-btn bg-dark ">
+                                    <i class="material-icons">
+                                        tv
+                                    </i> <i class="material-icons" style="margin-left: -10px;margin-top: -10px;">
+                                        videocam
+                                    </i>
+
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <hr / -->
+                        <div class="actions">
+                            <span id="timer" hidden class="hide timer"></span>
+                            <button title="starting recording" id="start-btn" class="start icon-btn red"
+                                onclick="startRecording()">
+                                <i class="material-icons">fiber_manual_record</i>
+                            </button>
+                            <button title="continue recording" id="continue-btn" class="stop icon-btn red hide"
+                                onclick="resumeRecording()">
+                                <i class="material-icons">
+                                    fiber_manual_record
+                                </i>
+                            </button>
+                            <button title="pause recording" id="pause-btn" class="pause icon-btn hide blue"
+                                onclick="pauseRecording()">
+                                <i class="material-icons">
+                                    pause_circle
+                                </i>
+                            </button>
+                            <button title="stop recordin" id="stop-btn" class="stop icon-btn hide red"
+                                onclick="stopRecording()">
+                                <i class="material-icons">
+                                    stop_circle
+                                </i>
+                            </button>
+                        </div>
+                        <button class="btn btn-danger">
+                            <i class="material-icons ">settings</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div id="video-container">
+
+                        <!-- <div class="video-controls hidden" id="video-controls">
+                                    <video controls class="video" id="video" preload="metadata" poster="poster.jpg">
+                                        <source src="video.mp4" type="video/mp4">
+                                        </source>
+                                    </video>
+                                </div> -->
+
+                    </div>
+                    <div class="m-4 " id="download">
+                        <button onclick="uploadRecording()" class=" icon-btn btn btn-info">
+                            <i class="material-icons">file_download</i>
+                        </button>
+                        <button onclick="shareRecording()" class="icon-btn btn btn-dark">
+                            <i class="material-icons">share</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div id="video-container">
+                <!-- The flex item right -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

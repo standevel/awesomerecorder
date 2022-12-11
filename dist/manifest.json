@@ -1,0 +1,10 @@
+ {
+      "name": "Awesome Recorder",
+      "version": "1.0",
+      "manifest_version": 3,
+      "description": "The Simple but awesome recorder that can record your system screen, webcam or both. Producess clear video in mp4 format.",
+      "icons": {
+        "16":  "video-call.png"
+      }
+     
+      }
